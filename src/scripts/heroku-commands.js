@@ -277,7 +277,7 @@ module.exports = function(robot) {
 
     heroku.post(`/apps/${appName}/dynos`, {
       body: {
-        command: `${command} ${task}`,
+        command: `bin/procfile-wrapper.sh ${command} ${task}`,
         attach: false
       }
     }).then(dyno => {
